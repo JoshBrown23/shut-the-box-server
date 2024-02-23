@@ -27,3 +27,23 @@ app.get('/generateNum1To6', (request, response) => {
     response.type('text/plain');
     response.send(die);
 })
+
+// Custom 404 page.
+app.use((request, response) => {
+    response.type('text/plain')
+    response.status(404)
+    response.send('404 - Not Found')
+  })
+  
+  // Custom 500 page.
+  app.use((err, request, response, next) => {
+    console.error(err.message)
+    response.type('text/plain')
+    response.status(500)
+    response.send('500 - Server Error')
+  })
+  
+  app.listen(port, () => console.log(
+    `Express started at \"http://localhost:${port}\"\n` +
+    `press Ctrl-C to terminate.`)
+  )
