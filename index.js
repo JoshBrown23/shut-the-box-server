@@ -24,7 +24,7 @@ app.get('/generateNum1To6', (request, response) => {
     let die = Math.floor(Math.random() * 6) + 1;
 
     response.type('text/plain');
-    response.send(die);
+    response.send(die.toString());
 })
 
 // Custom 404 page.
